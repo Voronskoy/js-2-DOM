@@ -1,22 +1,25 @@
-/*
-* дістати кнопку з id=uniqq і зробити її фоновий колір синій
-*/
-// document.getElementById('uniqq').style.backgroundColor = 'blue';
-// const uniqq = document.getElementById('uniqq');
-// console.dir(uniqq);
-// uniqq.style.backgroundColor = 'blue';
-// uniqq.style.color = 'white';
-/*
-* зібрати всі елементи з класом btn і зробити їх блочними
-*/
-const buttons = document.getElementsByClassName('btn');
-for (const button of buttons) {
-    // console.dir(button.style);
-    button.style.display = 'block';
-    button.addEventListener('click', () => {
-        button.style.fontSize = '32px'
+const box = document.querySelector(".box");
+const fruits = document.querySelectorAll(".fruits>li");
+console.dir(fruits);
+fruits.forEach((fruit) => {
+  fruit.addEventListener("click", () => {
+    const words = fruit.textContent.split(" - ");
+    console.dir(words);
+    box.textContent = words[0];
+    fruits.forEach((fruit) => {
+      fruit.style.backgroundColor = "";
     });
+    box.style.backgroundColor = words[1];
+    fruit.style.backgroundColor = words[1];
+  });
+});
+const lis = document.getElementsByTagName("li");
+console.dir(lis);
+for (const li of lis) {
+  li.addEventListener("click", () => {
+    for (const li of lis) {
+        li.style.textAlign = '';
+    }
+    li.style.textAlign = "center";
+  });
 }
-/*
-* на кожну кнопку додати слухача події click і по кліку встановити розмір тексту = 32px
-*/
