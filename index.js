@@ -1,25 +1,22 @@
-const box = document.querySelector(".box");
-const fruits = document.querySelectorAll(".fruits>li");
-console.dir(fruits);
-fruits.forEach((fruit) => {
-  fruit.addEventListener("click", () => {
-    const words = fruit.textContent.split(" - ");
-    console.dir(words);
-    box.textContent = words[0];
-    fruits.forEach((fruit) => {
-      fruit.style.backgroundColor = "";
-    });
-    box.style.backgroundColor = words[1];
-    fruit.style.backgroundColor = words[1];
+const fruits = document.querySelectorAll(".buttons > button");
+let activeFruit = null;
+const area = document.getElementById("area");
+console.dir(area);
+for (const fruit of fruits) {
+  fruit.addEventListener("mousedown", () => {
+    activeFruit = fruit;
+    fruit.style.cursor = "move";
   });
-});
-const lis = document.getElementsByTagName("li");
-console.dir(lis);
-for (const li of lis) {
-  li.addEventListener("click", () => {
-    for (const li of lis) {
-        li.style.textAlign = '';
+  fruit.addEventListener("mousemove", (event) => {
+    if (activeFruit) {
+      console.log(event);
+      activeFruit.style.left = event.clientX - area.offsetLeft + "px";
+      activeFruit.style.top = event.clientY - area.offsetTop + "px";
     }
-    li.style.textAlign = "center";
+  });
+  fruit.addEventListener("mouseup", () => {
+    if (activeFruit) {
+      activeFruit = null;
+    }
   });
 }
