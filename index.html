@@ -3,21 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fruits</title>
+    <title>DOM</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="./index.js"></script>
   </head>
   <body>
-    <h1>Перетягни у кошики</h1>
-    <section id="area" class="area">
-      <div class="buttons">
-        <button>apple</button><button>banana</button><button>grape</button
-        ><button>orange</button><button>mango</button>
-      </div>
-      <div class="baskets">
-        <div class="basket">Basket 1</div>
-        <div class="basket">Basket 2</div>
-      </div>
+    <section id="shop">
+      <article class="product" data-price="25" data-category="bread">
+        <h2>хліб</h2>
+        <p>25 грн</p>
+      </article>
+      <article class="product" data-price="46" data-category="milk">
+        <h2>Молоко</h2>
+        <p>46 грн</p>
+      </article>
+      <article class="product" data-price="120" data-category="meat">
+        <h2>курячі грудки</h2>
+        <p>120 грн</p>
+      </article>
+      <article class="product" data-price="20" data-category="fruits&veget">
+        <h2>картопля</h2>
+        <p>20 грн</p>
+      </article>
+      <article class="product" data-price="15" data-category="fruits&veget" data-info-more="red">
+        <h2>яблука</h2>
+        <p>15 грн</p>
+      </article>
     </section>
   </body>
 </html>

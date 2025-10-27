@@ -1,26 +1,27 @@
-const fruits = document.querySelectorAll(".buttons > button");
-let activeFruit = null;
-const area = document.getElementById("area");
-let x = 0;
-let y = 0;
-console.dir(area);
-for (const fruit of fruits) {
-  fruit.addEventListener("mousedown", (event) => {
-    activeFruit = fruit;
-    x = event.offsetX;
-    y = event.offsetY;
-    fruit.style.cursor = "move";
-  });
-  fruit.addEventListener("mousemove", (event) => {
-    if (activeFruit) {
-      console.log(event);
-      activeFruit.style.left = event.clientX - area.offsetLeft - x + "px";
-      activeFruit.style.top = event.clientY - area.offsetTop - y + "px";
-    }
-  });
-  fruit.addEventListener("mouseup", () => {
-    if (activeFruit) {
-      activeFruit = null;
-    }
-  });
-}
+const products = document.querySelectorAll("#shop .product");
+const check = document.querySelector("#shop h1 span");
+
+//
+products.forEach((product) => {
+  if (product.dataset.category === "fruits&veget") {
+    product.style.backgroundColor = "Lightgreen";
+  }
+});
+
+let summa = 0;
+check.textContent = summa;
+
+const addToCart = (event) => {
+  summa += Number(event.currentTarget.dataset.price);
+  if (summa > 150) {
+    alert("Ви перевисили ліміт карти");
+    event.currentTarget.removeEventListener("click", addToCart);
+    return;
+  }
+  event.currentTarget.style.backgroundColor = "pink";
+  check.textContent = summa;
+};
+
+products.forEach((product) => {
+  product.addEventListener("click", addToCart);
+});

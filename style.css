@@ -1,48 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-body {
-  text-align: center;
-  font-family: sans-serif;
-  
-}
-.area {
-  width: 90%;
-  max-width: 900px;
-  border: 1px solid blue;
-  margin: auto;
-  padding: 15px;
-  height: 400px;
-  position: relative;
-}
-.buttons > button {
-  background-color: rgb(255, 183, 0);
-  text-transform: capitalize;
-  padding: 10px;
-  position: absolute;
-}
-.buttons > button:first-child {
-  left: 5%;
-}
-.buttons > button:nth-child(2){
-    left:20%
-}
-.buttons > button:nth-child(3){
-    left:35%
-}
-.buttons > button:nth-child(4){
-    left:50%
-}
-.buttons > button:last-child{
-    left:65%
-}
-.baskets {
+#shop{
   display: flex;
-  justify-content: space-around;
-  margin-top: 50px;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
-.basket {
-  width: 40%;
-  height: 250px;
-  border: 3px dashed black;
+.product{
+  border: 2px solid pink;
+  margin-bottom: 10px;
 }
